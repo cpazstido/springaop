@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd  
+    http://www.springframework.org/schema/aop  
+    http://www.springframework.org/schema/aop/spring-aop.xsd">  
+      
+    <!-- Root Context: defines shared resources visible to all other web components -->  
+      
+    
+    <!-- 基于注解的aop -->  
+    <aop:aspectj-autoproxy /> 
+    <bean id="aspectJAnnotationAdvisorObj" class="com.cf.springaop.advisor.AspectJAnnotationAdvisorObj"></bean>
+    <bean id="myService" class="com.cf.springaop.service.MyService" />
+       
+    
+    <!-- 基于配置aop -->
+    <!-- <bean id="adviser" class="com.cf.springaop.advisor.AdvisorObject" />
+    <aop:config>  
+        <aop:aspect ref="adviser">
+            <aop:pointcut id="myPointCut" expression="execution(* com.cf.springaop.service..*.*(..))" />
+            <aop:pointcut id="myPointCut1" expression="execution(* com.cf.springaop.service.MyService.loginIn(..))" />
+            
+            <aop:before pointcut-ref="myPointCut1" method="beforeExecute" />  
+            <aop:after  pointcut-ref="myPointCut1" method="afterExecute" />
+            <aop:around  pointcut-ref="myPointCut1" method="roundExecute" />
+        </aop:aspect>  
+    </aop:config> -->  
+  
+</beans> 
